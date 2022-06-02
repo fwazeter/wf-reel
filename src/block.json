@@ -5,7 +5,6 @@
 	"version": "0.2.0",
 	"title": "Reel Block",
 	"category": "design",
-	"icon": "smiley",
 	"description": "Reel block that enables side scrolling of content",
 	"textdomain": "wf-reel",
   	"attributes": {
