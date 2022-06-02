@@ -15,7 +15,6 @@
   overflow-y: hidden;
   /* override to set a manual height, inherited uses 100% to maintain aspect ratio */
   block-size: var(--height);
-  gap: var(--space);
   scrollbar-color: var(--color-light, var(--wp--preset--color--background, #fff)), var(--color-dark, var(--wp--preset--color--foreground, #000));
 }
 
@@ -35,7 +34,7 @@
 }
 
 .wp-block-wazframe-reel.overflowing {
-  padding-block-end: 1rem;
+  padding-block-end: var(--space);
 }
 
 /* makes scrollbar show on safari */
