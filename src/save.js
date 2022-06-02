@@ -25,7 +25,8 @@ import { useInnerBlocksProps, useBlockProps } from '@wordpress/block-editor';
 export default function save(
 	{ attributes: {
 		tagName: Tag,
-		dimensions
+		dimensions,
+		noBar,
 	} }
 ) {
 	const styleProps = {
@@ -34,5 +35,9 @@ export default function save(
 		"--space": dimensions?.space
 	}
 
-	return <Tag { ...useInnerBlocksProps.save( useBlockProps.save() ) } style={{ ...styleProps }} />;
+	const toggleScrollbar = noBar ? 'no-scrollbar' : '';
+
+	return <Tag { ...useInnerBlocksProps.save( useBlockProps.save(
+		{className: toggleScrollbar}
+	) ) } style={{ ...styleProps }} />;
 }

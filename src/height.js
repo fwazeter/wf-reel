@@ -5,7 +5,7 @@
 /**
  * WordPress dependencies
  */
-import { __ } from '@wordpress/i18n';
+import { __, _x } from '@wordpress/i18n';
 import {
 	__experimentalUnitControl as UnitControl,
 } from '@wordpress/components';
@@ -54,10 +54,10 @@ export function HeightEdit( props ) {
 	} = props
 
 	const units = [
-		{ value: 'vh', label: 'VH' },
-		{ value: 'em', label: 'EM' },
-		{ value: 'REM', label: 'REM' },
-		{ value: 'px', label: 'PX' },
+		{ value: 'vh', label: 'VH', step: 0.1, a11yLabel: __( 'Viewport height (vh)' ), },
+		{ value: 'em', label: 'EM', step: 0.001, a11yLabel: _x( 'ems', 'Relative to parent font size (em)' ), },
+		{ value: 'rem', label: 'REM', step: 0.001, a11yLabel: _x( 'rems', 'Relative to root font size (rem)' ),},
+		{ value: 'px', label: 'PX', step: 1, a11yLabel: __( 'Pixels (px)' ), },
 	]
 
 	const onChange = ( modifyValue ) => {

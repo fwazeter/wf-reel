@@ -5,7 +5,7 @@
 /**
  * WordPress dependencies
  */
-import {__} from '@wordpress/i18n';
+import {__, _x} from '@wordpress/i18n';
 import {__experimentalUnitControl as UnitControl,} from '@wordpress/components';
 import {cleanEmptyObject} from "./utils";
 
@@ -52,10 +52,10 @@ export function SpaceEdit( props ) {
 	} = props
 
 	const units = [
-		{ value: 'em', label: 'EM' },
-		{ value: 'rem', label: 'REM' },
-		{ value: '%', label: '%' },
-		{ value: 'px', label: 'PX' },
+		{ value: 'em', label: 'EM', step: 0.001, a11yLabel: _x( 'ems', 'Relative to parent font size (em)' ), },
+		{ value: 'rem', label: 'REM', step: 0.001, a11yLabel: _x( 'rems', 'Relative to root font size (rem)' ), },
+		{ value: '%', label: '%', step: 0.1, a11yLabel: __( 'Percent (%)' ), },
+		{ value: 'px', label: 'PX', step: 1, a11yLabel: __( 'Pixels (px)' ), },
 	]
 
 	const onChange = ( modifyValue ) => {

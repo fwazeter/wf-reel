@@ -63,14 +63,20 @@ function Edit( props ) {
 			noBar
 	} = attributes;
 
+	const toggleScrollbar = noBar ? 'no-scrollbar' : '';
+
 	/* adding another className here duplicates default className */
-	const blockProps = useBlockProps();
+	const blockProps = useBlockProps(
+		{ className: toggleScrollbar }
+	);
 
 	const styleProps = {
 		"--height": attributes.dimensions?.height,
 		"--item-width": attributes.dimensions?.width,
 		"--space": attributes.dimensions?.space
 	}
+
+
 
 	const { hasInnerBlocks } = useSelect(
 		( select ) => {
@@ -91,13 +97,12 @@ function Edit( props ) {
 		}
 	)
 
-
 	const [ tag, setTag ] = useState();
 	const [ scrollbar, setScrollbar ] = useState();
 
 	const resetAllHTML = () => {
 		setTag( 'section' );
-		setScrollbar( false );
+		setScrollbar(  ! noBar );
 	}
 
 	return (
@@ -138,8 +143,9 @@ function Edit( props ) {
 					>
 						<ToggleControl
 							label="Hide Scrollbar"
-							help={ true ? 'Scrollbar is hidden' : 'Scrollbar is showing' }
-							checked={ false }
+							help={ noBar ? 'Scrollbar is hidden' : 'Scrollbar is showing' }
+							checked={ noBar }
+							onChange={ () => setAttributes({ noBar: !noBar })}
 						/>
 					</ToolsPanelItem>
 				</ToolsPanel>
