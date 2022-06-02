@@ -1,0 +1,38 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "wazframe/reel",
+  "version": "0.2.0",
+  "title": "Reel Block",
+  "category": "design",
+  "icon": "smiley",
+  "description": "Reel block that enables side scrolling of content",
+  "textdomain": "wf-reel",
+  "attributes": {
+    "tagName": {
+      "type": "string",
+      "default": "section"
+    },
+    "templateLock": {
+      "type": [
+        "string",
+        "boolean"
+      ],
+      "enum": [
+        "all",
+        "insert",
+        false
+      ]
+    },
+    "noBar": {
+      "type": "boolean",
+      "default": false
+    },
+    "dimensions": {
+      "type": "object"
+    }
+  },
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css"
+}
